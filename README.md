@@ -8,5 +8,5 @@ This is a simple tutorial shows Javascript developer how to setup module develop
 ### Quick Start
 1. `git clone https://github.com/Azure-Samples/azure-iot-gateway-samples.git`
 2. `cd js`
-3. `npm install` to install core run time of gateway.
+3. `npm install` to install pre-built core runtime of gateway.
 4. `npm start` to start the gateway with pre-defined modules(sensor and printer).
