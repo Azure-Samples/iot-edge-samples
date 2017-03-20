@@ -1,0 +1,34 @@
+{
+  "loaders": [{
+    "type": "node",
+    "name": "node"
+  }],
+  "modules": [{
+      "name": "node_sensor",
+      "loader": {
+        "name": "node",
+        "entrypoint": {
+          "main.path": "modules/sensor.js"
+        }
+      },
+      "args": null
+    },
+    {
+      "name": "iothub_writer",
+      "loader": {
+        "name": "node",
+        "entrypoint": {
+          "main.path": "modules/iothub_writer.js"
+        }
+      },
+      "args": {
+        "connection_string": "<IoT Hub device connection string>"
+      }
+    }
+  ],
+  "links": [{
+      "source": "node_sensor",
+      "sink": "node_printer"
+    }
+  ]
+}
