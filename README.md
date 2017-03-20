@@ -1,5 +1,5 @@
 # Azure IoT Gateway Module Samples
-This is a simple tutorial shows Javascript developer how to setup module development environment(Windows/Ubuntu Linux), write module, customize and initilaize the gateway instance.
+This tutorial shows a Javascript developer how to setup their module development environment (Windows/Ubuntu Linux), write a module, customize and initialize the gateway instance.
 
 ## How to run Javascript modules(Windows 10/Ubuntu Linux 14+)
 ### Prerequisites
@@ -8,6 +8,6 @@ This is a simple tutorial shows Javascript developer how to setup module develop
 ### Quick Start
 1. `git clone https://github.com/Azure-Samples/azure-iot-gateway-samples.git`
 2. `cd azure-iot-gateway-samples/js`
-3. `npm install` to install pre-built core runtime of gateway.
-4. `npm run local` to start the gateway with pre-defined modules(sensor and printer).
+3. `npm install` to install pre-built core runtime of gateway
+4. `npm run local` to start the gateway with pre-defined modules(sensor and printer)
 
