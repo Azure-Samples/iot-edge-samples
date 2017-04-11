@@ -1,0 +1,33 @@
+{
+  "loaders": [
+      {
+          "type": "java",
+          "name": "java",
+          "configuration":{
+              "jvm.options":{
+                  "library.path": "./"
+              }
+          }
+          
+      }
+  ],
+  "modules": [
+      {
+          "name": "java_timer",
+          "loader":{
+              "name": "java",
+              "entrypoint": {
+                  "class.name": "com/microsoft/azure/gateway/TimerModule",
+                  "class.path": "./gateway-sample-1.0-with-deps.jar"
+              }
+          },
+          "args": null
+      }
+  ],
+  "links": [
+      {
+          "source": "java_timer",
+          "sink": "java_timer"
+      }
+  ]
+}
