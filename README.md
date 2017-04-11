@@ -1,5 +1,5 @@
-# Azure IoT Gateway Module Samples
-This tutorial shows a JavaScript developer how to setup their module development environment (Windows/Ubuntu Linux), write a module, customize and initialize the gateway instance.
+# Azure IoT Gateway SDK Module Samples
+This tutorial shows how to setup your Azure IoT Gateway SDK module development environment (Windows/Ubuntu Linux), write a module, customize and initialize the gateway instance. It includes samples for JavaScript, Java, and .NET modules.
 
 <br>
 
