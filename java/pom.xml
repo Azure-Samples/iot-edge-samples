@@ -1,11 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <repositories>
-    <repository>
-      <id>MyGet</id>
-      <url>https://www.myget.org/F/iot-gateway-packages-repo/maven/</url>
-    </repository>
-  </repositories>
-  
+  <repositories />
+
   <properties>
     <gw.config.fileName>gw-config.json</gw.config.fileName>
   </properties>
