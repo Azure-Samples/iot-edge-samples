@@ -16,6 +16,17 @@
   <packaging>jar</packaging>
 
   <dependencies>
+    <!-- Dependencies from parent -->
+    <dependency>
+      <groupId>com.microsoft.azure.gateway</groupId>
+      <artifactId>gateway-java-binding</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>${dependency.runtime.group}</groupId>
+      <artifactId>${dependency.runtime.name}</artifactId>
+    </dependency>
+
+    <!-- Local dependencies -->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -32,6 +43,23 @@
 
   <build>
     <plugins>
+      <!-- Plugins from parent -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+      </plugin>
 
       <!-- Set Java version to support lambda expression -->
       <plugin>
