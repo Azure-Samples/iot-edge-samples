@@ -1,9 +1,12 @@
 {
-  "loaders": [{
-    "type": "node",
-    "name": "node"
-  }],
-  "modules": [{
+  "loaders": [
+    {
+      "type": "node",
+      "name": "node"
+    }
+  ],
+  "modules": [
+    {
       "name": "node_sensor",
       "loader": {
         "name": "node",
@@ -26,9 +29,14 @@
       }
     }
   ],
-  "links": [{
+  "links": [
+    {
       "source": "node_sensor",
       "sink": "node_printer"
+    },
+    {
+      "source": "node_sensor",
+      "sink": "iothub_writer"
     }
   ]
 }

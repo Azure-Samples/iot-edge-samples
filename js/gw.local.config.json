@@ -1,9 +1,12 @@
 {
-  "loaders": [{
-    "type": "node",
-    "name": "node"
-  }],
-  "modules": [{
+  "loaders": [
+    {
+      "type": "node",
+      "name": "node"
+    }
+  ],
+  "modules": [
+    {
       "name": "node_printer",
       "loader": {
         "name": "node",
@@ -24,7 +27,8 @@
       "args": null
     }
   ],
-  "links": [{
+  "links": [
+    {
       "source": "node_sensor",
       "sink": "node_printer"
     }
