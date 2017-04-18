@@ -49,3 +49,4 @@ maven/**/target
 [Oo]bj/
 [Pp]ackages/
 .vs/
+.vscode/

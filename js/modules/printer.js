@@ -12,7 +12,9 @@ module.exports = {
   },
 
   receive: function (message) {
-    console.log(`printer.receive - ${message.content.join(', ')}`);
+    let data = Buffer.from(message.content).toString('utf8');
+
+    console.log(`printer.receive - ${data}`);
   },
 
   destroy: function () {

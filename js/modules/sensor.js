@@ -13,14 +13,16 @@ module.exports = {
 
   start: function () {
     setInterval(() => {
+      let data = {
+        temp: Math.random() * 50,
+        hmdt: Math.random() * 80
+      };
+
       this.broker.publish({
         properties: {
           'source': 'sensor'
         },
-        content: new Uint8Array([
-          Math.random() * 50,
-          Math.random() * 50
-        ])
+        content: new Uint8Array(Buffer.from(JSON.stringify(data), 'utf8'))
       });
     }, 500);
   },
