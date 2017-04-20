@@ -1,6 +1,6 @@
 {
   "name": "azure-iot-gateway-samples",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "",
   "main": "iothub_writer.js",
   "author": "Microsoft",
