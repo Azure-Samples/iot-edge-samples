@@ -46,8 +46,10 @@ class IotHubWriterModule {
   }
 
   receive(message) {
+    let data = Buffer.from(message.content).toString('utf8');
+
     if (this.connected) {
-      var m = new Message(message.content ? message.content.buffer : []);
+      var m = new Message(data);
       if (message.properties) {
         for (var prop in message.properties) {
           m.properties.add(prop, message.properties[prop]);
