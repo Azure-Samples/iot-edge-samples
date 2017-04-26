@@ -35,7 +35,6 @@ This tutorial shows how to setup your Azure IoT Gateway SDK module development e
 ### Quick Start
 1. `git clone https://github.com/Azure-Samples/azure-iot-gateway-samples.git`
 2. `cd dotnet`
-2. Open `\DotnetModuleSample\DotnetModuleSample.sln` with and build the solution.
-3. Open a command window to the project output directory (i.e. `.\DotnetModuleSample\DotnetModuleSample\bin\[Debug|Release]`).
-4. Run `gw.exe module_dev_sample.json`.
-5. For more information see the `README.md` file in the `.\DotnetModuleSample\DotnetModuleSample` directory.
+3. Open `\DotnetModuleSample\DotnetModuleSample.sln` with and build the solution.
+4. Build the DotnetModuleSample project (Ctrl + Shift + B).
+5. Click the `Start` button in the Visual Studio 2015 IDE or press the F5 key.
