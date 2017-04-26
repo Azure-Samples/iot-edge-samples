@@ -11,8 +11,8 @@ The sample contains:
 1. A printer module (C#) that interprets telemetry from sensor and prints its content and properties into Console.
 2. A sensor module (C#) that publishes random data to the gateway.
 3. The .NET Microsoft.Azure.IoT.Gateway interface assembly.
-4. A sample native (C++) gateway executable (gw.exe) file.
-5. The native (C++) binding layer interfaces for .NET, Java, and NodeJs (C++). Which includes `gateway.dll`, `aziotsharedutil.dll`, `nanomsg.dll`, `dotnet.dll`, `java_module_host.dll`, `node.dll`, `nodejs_binding.dll`.
+4. A sample native (C) gateway executable (gw.exe) file.
+5. The native (C) binding layer interfaces for .NET, Java, and NodeJs (C). Which includes `aziotsharedutil.dll`, `dotnet.dll`, `dotnetcore.dll`, `gateway.dll`, `gw.exe`, `identity_map.dll`, `iothub.dll`, `iothub_client.dll`, `iothub_service_client.dll`, `java_module_host.dll`, `logger.dll`, `nanomsg.dll`, `node.dll`, `nodejs_binding.dll`, and `serializer.dll`.
 6. The `Microsoft.Azure.IoT.Gateway.dll` (C#) which contains the Azure IoT Gateway module interface definition.
 7. A `module_dev_sample.json` file that is used to configure which module the gateway will use.
 
@@ -31,6 +31,4 @@ You can find the diagram for Receiving a message and publishing a message on thi
 Running the sample
 ------------------
 1. Build the DotnetModuleSample project (Ctrl + Shift + B).
-2. Open a command prompt (cmd.exe) and navigate to the projects bin folder.
-3. Enter the following command:
-	- gw.exe module&#95;dev&#95;sample.json
+2. Click the `Start` button in the Visual Studio 2015 IDE or press the F5 key.
