@@ -1,5 +1,5 @@
-# Azure IoT Gateway SDK Module Samples
-This tutorial shows how to setup your Azure IoT Gateway SDK module development environment (Windows/Ubuntu Linux), write a module, customize and initialize the gateway instance. It includes samples for JavaScript, Java, and .NET modules.
+# Azure IoT Edge Module Samples
+This tutorial shows how to setup your Azure IoT Edge module development environment (Windows/Ubuntu Linux), write a module, customize and initialize the IoT Edge instance. It includes samples for JavaScript, Java, and .NET modules.
 
 <br>
 
@@ -10,8 +10,8 @@ This tutorial shows how to setup your Azure IoT Gateway SDK module development e
 ### Quick Start
 1. `git clone https://github.com/Azure-Samples/azure-iot-gateway-samples.git`
 2. `cd azure-iot-gateway-samples/js`
-3. `npm install` to install pre-built core runtime of gateway.
-4. `npm run local` to start the gateway with pre-defined modules (sensor and printer).
+3. `npm install` to install pre-built core runtime of IoT Edge.
+4. `npm run local` to start the IoT Edge with pre-defined modules (sensor and printer).
 
 <br>
 
@@ -24,7 +24,7 @@ This tutorial shows how to setup your Azure IoT Gateway SDK module development e
 1. `git clone https://github.com/Azure-Samples/azure-iot-gateway-samples.git`
 2. `cd java`
 3. `mvn package` to build your module with all dependencies.
-4. `mvn exec:exec` to start the gateway with pre-defined module.
+4. `mvn exec:exec` to start the IoT Edge with pre-defined module.
 
 <br>
 
