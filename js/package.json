@@ -1,7 +1,7 @@
 {
   "name": "simple",
   "version": "1.0.0",
-  "description": "Simple sensor and printer modules run on Gateway.",
+  "description": "Simple sensor and printer modules run on Azure IoT Edge.",
   "repository": {
     "type": "git",
     "url": "https://github.com/Azure-Samples/azure-iot-gateway-sample"
