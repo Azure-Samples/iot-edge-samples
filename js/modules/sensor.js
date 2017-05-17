@@ -13,7 +13,7 @@ module.exports = {
 
   start: function () {
     setInterval(() => {
-      let data = {
+      let data = [{
         name: 'input',
         content: [{
           'sensorId': 'device1',
@@ -28,7 +28,7 @@ module.exports = {
           temp: this.rangeRand(10, 200),
           hmdt: this.rangeRand(0, 100)
         }]
-      };
+      }];
 
       this.broker.publish({
         properties: {
