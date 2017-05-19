@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.3</TargetFramework>
+    <StartAction>Program</StartAction>
+    <StartProgram>$(OutDir)gw.exe</StartProgram>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Azure.Devices.Gateway.Module.NetStandard" Version="1.0.2" />
+    <PackageReference Include="System.Threading.Thread" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="module_dev_sample.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <Import Project="$(NuGetPackageFolders)\microsoft.azure.devices.gateway.native.windows.x64\1.1.0\build\Microsoft.Azure.Devices.Gateway.Native.Windows.x64.Targets" Condition="Exists('$(NuGetPackageFolders)\microsoft.azure.devices.gateway.native.windows.x64\1.1.0\build\Microsoft.Azure.Devices.Gateway.Native.Windows.x64.Targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(NuGetPackageFolders)\microsoft.azure.devices.gateway.native.windows.x64\1.1.0\build\Microsoft.Azure.Devices.Gateway.Native.Windows.x64.Targets')" Text="$([System.String]::Format('$(ErrorText)', '$(NuGetPackageFolders)\microsoft.azure.devices.gateway.native.windows.x64\1.1.0\build\Microsoft.Azure.Devices.Gateway.Native.Windows.x64.Targets'))" />
+  </Target>
+
+  <Import Project="$(NuGetPackageFolders)\microsoft.azure.devices.gateway.module.netstandard\1.0.2\build\\microsoft.azure.devices.gateway.module.netstandard.Targets" Condition="Exists('$(NuGetPackageFolders)\microsoft.azure.devices.gateway.module.netstandard\1.0.2\netstandard1.3\build\microsoft.azure.devices.gateway.module.netstandard.Targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(NuGetPackageFolders)\microsoft.azure.devices.gateway.module.netstandard\1.0.2\build\\microsoft.azure.devices.gateway.module.netstandard.Targets')" Text="$([System.String]::Format('$(ErrorText)', '$(NuGetPackageFolders)\microsoft.azure.devices.gateway.module.netstandard\1.0.2\build\\microsoft.azure.devices.gateway.module.netstandard.Targets'))" />
+  </Target>
+
+</Project>

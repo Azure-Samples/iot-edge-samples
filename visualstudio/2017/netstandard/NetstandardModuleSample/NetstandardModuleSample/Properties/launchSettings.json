@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "NetstandardModuleSample": {
+      "commandName": "Executable",
+      "executablePath": "$(OutDir)gw.exe",
+      "commandLineArgs": "module_dev_sample.json",
+      "environmentVariables": {
+        "Key": "Value"
+      }
+    }
+  }
+}
