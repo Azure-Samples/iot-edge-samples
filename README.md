@@ -11,7 +11,7 @@ If you encounter an issue related to these samples please [submit a new issue](h
 2. Install latest [Node LTS](https://nodejs.org).
 ### Quick Start
 1. `git clone https://github.com/Azure-Samples/iot-edge-samples.git`
-2. `cd azure-iot-gateway-samples/js`
+2. `cd azure-iot-edge-samples/js`
 3. `npm install` to install pre-built core runtime of IoT Edge.
 4. `npm run local` to start the IoT Edge with pre-defined modules (sensor and printer).
 
@@ -24,7 +24,7 @@ If you encounter an issue related to these samples please [submit a new issue](h
 3. Install latest [Maven](https://maven.apache.org/install.html).
 ### Quick Start
 1. `git clone https://github.com/Azure-Samples/iot-edge-samples.git`
-2. `cd java`
+2. `cd iot-edge-samples/java`
 3. `mvn package` to build your module with all dependencies.
 4. `mvn exec:exec` to start the IoT Edge with pre-defined module.
 
@@ -36,7 +36,7 @@ If you encounter an issue related to these samples please [submit a new issue](h
 2. Install Visual Studio 2015 with Update 3.
 ### Quick Start
 1. `git clone https://github.com/Azure-Samples/iot-edge-samples.git`
-2. `cd visualstudio\2015\dotnet\DotnetModuleSample`
+2. `cd iot-edge-samples\dotnet\visualstudio\2015\dotnet\DotnetModuleSample`
 3. Open the `DotnetModuleSample.sln` solution file.
 4. Build the DotnetModuleSample project (Ctrl + Shift + B).
 5. Click the `Start` button in the Visual Studio 2015 IDE or press the F5 key.
@@ -47,7 +47,7 @@ If you encounter an issue related to these samples please [submit a new issue](h
 2. Install Visual Studio 2017.
 ### Quick Start
 1. `git clone https://github.com/Azure-Samples/iot-edge-samples.git`
-2. `cd visualstudio\2017\netstandard\NetstandardModuleSample`
+2. `cd iot-edge-samples\dotnet\visualstudio\2017\netstandard\NetstandardModuleSample`
 3. Open the `NetstandardModuleSample.sln` solution file.
 4. Build the NetstandardModuleSample project (Ctrl + Shift + B).
 5. Click the `Start` button in the Visual Studio 2017 IDE or press the F5 key.
