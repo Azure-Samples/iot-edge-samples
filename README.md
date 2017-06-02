@@ -24,7 +24,7 @@ If you encounter an issue related to these samples please [submit a new issue](h
 3. Install latest [Maven](https://maven.apache.org/install.html).
 ### Quick Start
 1. `git clone https://github.com/Azure-Samples/iot-edge-samples.git`
-2. `cd iot-edge-samples/java`
+2. `cd iot-edge-samples/java/timer`
 3. `mvn package` to build your module with all dependencies.
 4. `mvn exec:exec` to start the IoT Edge with pre-defined module.
 
