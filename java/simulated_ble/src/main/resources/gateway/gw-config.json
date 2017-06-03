@@ -1,0 +1,59 @@
+{
+  "loaders": [{
+    "type": "java",
+    "name": "java",
+    "configuration": {
+      "jvm.options": {
+        "library.path": "./"
+      }
+    }
+  }],
+  "modules": [
+    {
+      "name": "ble",
+      "loader": {
+        "name": "java",
+        "entrypoint": {
+          "class.name": "com/microsoft/azure/gateway/SimulatedBleModule",
+          "class.path": "./ble-converter-1.0-with-deps.jar"
+        }
+      },
+      "args": {
+        "macAddress": "01:02:03:03:02:01",
+        "messagePeriod": 500
+      }
+    },
+    {
+      "name": "converter",
+      "loader": {
+        "name": "java",
+        "entrypoint": {
+          "class.name": "com/microsoft/azure/gateway/ConverterModule",
+          "class.path": "./ble-converter-1.0-with-deps.jar"
+        }
+      },
+      "args": null
+    },
+    {
+      "name": "print",
+      "loader": {
+        "name": "java",
+        "entrypoint": {
+          "class.name": "com/microsoft/azure/gateway/PrinterModule",
+          "class.path": "./ble-converter-1.0-with-deps.jar"
+        }
+      },
+      "args": null
+    }
+  ],
+  "links": [
+    {
+      "source": "ble",
+      "sink": "converter"
+    },
+    {
+      "source": "converter",
+      "sink": "print"
+    }
+  ]
+}
