@@ -2,15 +2,15 @@
 
 ## Overview
 
-This tutorial showcases how one might build a [BLE](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) data converter module for Azure IoT Edge in Java.
+This tutorial showcases how one might build a module for Azure IoT Edge in Java.
 
-In this tutorial, you will be guided on how to setup the environment, and how to write your module by using the latest Azure IoT Edge packages.
+In this tutorial, we will walk through environment setup and how to write a [BLE](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) data converter module using the latest Azure IoT Edge packages.
 
 ## Prerequisites
 
-In this section, you will setup your system environment for the development of Azure IoT Edge module. It applies to both *64-bit Windows* and *64-bit Linux (Ubuntu)* operating systems.
+In this section, you will setup your environment for IoT Edge module development. It applies to both *64-bit Windows* and *64-bit Linux (Ubuntu)* operating systems.
 
-First of all, the following softwares are required:
+First of all, the following software is required:
 
 1. The latest [Git Client](https://https://git-scm.com/downloads).
 2. The latest [**x64** JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
@@ -23,7 +23,7 @@ And now it's time to open your favorite command line terminal and navigate to th
 
 ## Overall Architecture
 
-The Azure IoT Edge heavily adopts the [Von Neumann architecture](https://en.wikipedia.org/wiki/Von_Neumann_architecture). That means the whole Azure IoT Edge is a system which processes input and produces output; and each individual module is also a tiny input-processor-output subsystem. In this tutorial, we'd like to introduce three modules:
+The Azure IoT Edge heavily adopts the [Von Neumann architecture](https://en.wikipedia.org/wiki/Von_Neumann_architecture). That means the whole Azure IoT Edge is a system which processes input and produces output; and each individual module is also a tiny input-processor-output subsystem. In this tutorial, we will introduce three modules:
 
 1. A module which generates a simulated [BLE](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) signal periodically
 2. A module which converts the received [BLE](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) signal to a formatted [JSON](https://en.wikipedia.org/wiki/JSON) message
@@ -38,11 +38,11 @@ So in this case, a typical end-to-end dataflow is illustrated below:
 
 ### Maven Project Structure
 
-Since Azure IoT Edge packages are based on Maven, we need to create a typical Maven project structure, which contains a `pom.xml` file.
+Since IoT Edge packages are based on Maven, we need to create a typical Maven project structure, which contains a `pom.xml` file.
 
-Ths POM inherits from the `com.microsoft.azure.gateway.gateway-module-base` package which declares all the dependencies needed by a module project like the runtime binaries, the gateway configuration file as well as the execution behaviors. So we do not need to write these hundreds lines of code again and again.
+Ths POM inherits from the `com.microsoft.azure.gateway.gateway-module-base` package which declares all the dependencies needed by a module project like the runtime binaries, the gateway configuration file as well as the execution behavior. This will save us from writing hundreds of lines of code again and again!
 
-And the only essential thing we need to do in our own `pom.xml` is to re-declare the dependencies and plugins used in parent, and to specify the name of Azure IoT Edge configuration file. All other stuffs are just optional to Azure IoT Edge module development.
+The only essential thing we need to do in our own `pom.xml` is to re-declare the dependencies and plugins used in parent, and to specify the name of the IoT Edge configuration file. Everything else is optional to module development.
 
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0"
@@ -106,15 +106,15 @@ And the only essential thing we need to do in our own `pom.xml` is to re-declare
 
 ### Basic Knowledge of Module
 
-You could simply treat a Module of Azure IoT Edge as a data processor whose job is to: receive input, process it, and produce output.
+You could simply treat a module of Azure IoT Edge as a data processor whose job is to: receive input, process it, and produce output.
 
-The input might be the data from another hardware (like a motion detector), the message from other modules, or anything of your own (like a random number generated periodically by a timer).
+The input might be data from hardware (like a motion detector), a message from other modules, or anything else (like a random number generated periodically by a timer).
 
-The output is similar to the input, it could be triggering some hardware behaviors (like the blinking LED), a message to other modules, or anything of your own (like printing to the console).
+The output is similar to the input, it could trigger hardware behavior (like the blinking LED), a message to other modules, or anything else (like printing to the console).
 
-Modules communicate with each other using `com.microsoft.azure.gateway.messaging.Message` class. The **Content** of a `Message` is a byte array which is capable of representing any kind of data you like. **Properties** is also available in `Message`, it is simply a string-to-string map. You may think Properties as the headers in HTTP request, or the metadata of a file.
+Modules communicate with each other using `com.microsoft.azure.gateway.messaging.Message` class. The **Content** of a `Message` is a byte array which is capable of representing any kind of data you like. **Properties** is also available in `Message`, it is simply a string-to-string map. You may think of Properties as the headers in HTTP request, or the metadata of a file.
 
-In order to develop an Azure IoT Edge module in Java, you need to create a new module class which extends from `com.microsoft.azure.gateway.core.GatewayModule`. Then you need to implement the abstract methods like `receive()` and `destroy()`. You can also choose to implement the optional methods like `start()` or `create()`. The following piece of code is a skeleton of writing a module.
+In order to develop an IoT Edge module in Java, you need to create a new module class which extends from `com.microsoft.azure.gateway.core.GatewayModule`. Then you need to implement the abstract methods like `receive()` and `destroy()`. You can also choose to implement the optional methods like `start()` or `create()`. The following piece of code is a skeleton of writing a module.
 
 ```java
 import com.microsoft.azure.gateway.core.Broker;
@@ -157,7 +157,7 @@ public class MyEdgeModule extends GatewayModule {
 | ----- | --------- | ------------------------ | ------------------------- |
 | N/A   | N/A       | Temperature data message | `SimulatedBleModule.java` |
 
-This module simulates a [BLE](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) temperature hardware. It uses its own [Timer](https://docs.oracle.com/javase/8/docs/api/java/util/Timer.html) to send a randomized temperature data at a fixed rate. It also encloses a MAC Address and source type in the message properties.
+This module simulates a [BLE](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) temperature sensor. It uses its own [Timer](https://docs.oracle.com/javase/8/docs/api/java/util/Timer.html) to send randomized temperature data at a fixed rate. It also includes a MAC Address and source type in the message properties.
 
 Both the rate and the MAC address are coming from the module configuration string (typically it is a JSON string). That's why we need to first parse the configuration in the constructor of our module:
 
@@ -170,7 +170,7 @@ public SimulatedBleModule(long address, Broker broker, String configuration) {
 }
 ```
 
-And when the module is started, a timer need to be created to send a temperature data. And we do not need to release any resources (including the timer) because we make our timer to be a [daemon](https://docs.oracle.com/javase/8/docs/api/java/lang/Thread.html#setDaemon-boolean-).
+When the module is started, a timer needs to be created to send temperature data. We do not need to release any resources (including the timer) because our timer is a [daemon](https://docs.oracle.com/javase/8/docs/api/java/lang/Thread.html#setDaemon-boolean-).
 
 ```java
 @Override
@@ -203,7 +203,7 @@ public void start() {
 | ------------------------ | -------------------------------------- | ---------------------- | ---------------------- |
 | Temperature data message | Parse and construct a new JSON message | Structure JSON message | `ConverterModule.java` |
 
-This module is a typical Azure IoT Edge module. It accepts temperature message from any other modules (probably a hardware module, or in this case our simulated BLE module); and then it normalized the temperature message to a formal structured JSON message (including appending the message ID, setting the property of whether we need to trigger the temperature alert, and so on).
+This module is a typical Azure IoT Edge module. It accepts temperature message from another module (a hardware module, or in this case our simulated BLE module); and then it normalizes the temperature message to a structured JSON message (including appending the message ID, setting the property of whether we need to trigger the temperature alert, and so on).
 
 ```java
 @Override
@@ -247,7 +247,7 @@ public void receive(Message message) {
 
 The final step before running the modules is to configure the Azure IoT Edge and to establish the connections between modules.
 
-First we need to declare our java loader (since Azure IoT Edge supports loaders of different languages) which could be referenced by its `name` in the sections afterward.
+First we need to declare our Java loader (since Azure IoT Edge supports loaders of different languages) which could be referenced by its `name` in the sections afterward.
 
 ```json
 "loaders": [{
@@ -261,7 +261,7 @@ First we need to declare our java loader (since Azure IoT Edge supports loaders 
 }]
 ```
 
-And our modules are also required to be declared. Similar to the loaders, they can also be referenced by the `name`. In the declaration of each module, we need to specify the loader (which should be the one we defined before) as well as the entry-point (should be the normalized class name of our module). Let's take the `SimulatedBleModule` as the example (sometimes even `args` is `null`, but you have to put it in the JSON file, otherwise it will cause the failure):
+We are also required to declare modules. Similar to the loaders, they can also be referenced by the `name`. In the declaration of each module, we need to specify the loader (which should be the one we defined before) as well as the entry-point (should be the normalized class name of our module). Let's take the `SimulatedBleModule` as an example (sometimes even `args` is `null`, but you have to put it in the JSON file, otherwise it will cause a failure):
 
 ```json
 "modules": [{
@@ -280,7 +280,7 @@ And our modules are also required to be declared. Similar to the loaders, they c
 }]
 ```
 
-At the end of the configuration, we establish the connections. Each connection is expressed by `source` and `sink`. They should both reference to a module defined before. And the output message of `source` module will be forwarded to the input of `sink` module.
+At the end of the configuration, we establish the connections. Each connection is expressed by `source` and `sink`. They should both reference a pre-defined module. The output message of `source` module will be forwarded to the input of `sink` module.
 
 ```json
 "links": [
