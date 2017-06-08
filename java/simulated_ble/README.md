@@ -1,4 +1,4 @@
- Ma# Azure IoT Edge BLE Data Converter Module
+# Azure IoT Edge BLE Data Converter Module
 
 ## Overview
 
