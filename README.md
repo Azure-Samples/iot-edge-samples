@@ -7,7 +7,7 @@ If you encounter an issue related to these samples please [submit a new issue](h
 
 ## How to run JavaScript modules (Windows 10/Ubuntu Linux 14+)
 ### Prerequisites
-1. Install latest [Git Client](https://https://git-scm.com/downloads).
+1. Install latest [Git Client](https://git-scm.com/downloads).
 2. Install latest [Node LTS](https://nodejs.org).
 ### Quick Start
 1. `git clone https://github.com/Azure-Samples/iot-edge-samples.git`
@@ -19,7 +19,7 @@ If you encounter an issue related to these samples please [submit a new issue](h
 
 ## How to run Java modules (Windows 10/Ubuntu Linux 14+)
 ### Prerequisites
-1. Install latest [Git Client](https://https://git-scm.com/downloads).
+1. Install latest [Git Client](https://git-scm.com/downloads).
 2. Install latest x64 version of [JRE](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html).
 3. Install latest [Maven](https://maven.apache.org/install.html).
 ### Quick Start
