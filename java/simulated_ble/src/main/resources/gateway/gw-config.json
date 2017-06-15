@@ -10,12 +10,11 @@
   }],
   "modules": [
     {
-      "name": "ble",
+      "name": "simulated_device",
       "loader": {
-        "name": "java",
+        "name": "native",
         "entrypoint": {
-          "class.name": "com/microsoft/azure/gateway/SimulatedBleModule",
-          "class.path": "./ble-converter-1.0-with-deps.jar"
+          "module.path": "simulated_device"
         }
       },
       "args": {
@@ -48,7 +47,7 @@
   ],
   "links": [
     {
-      "source": "ble",
+      "source": "simulated_device",
       "sink": "converter"
     },
     {

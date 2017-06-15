@@ -3,6 +3,8 @@ package com.microsoft.azure.gateway;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.json.JSONObject;
+
 import com.microsoft.azure.gateway.core.Broker;
 import com.microsoft.azure.gateway.core.GatewayModule;
 import com.microsoft.azure.gateway.messaging.Message;
@@ -17,7 +19,8 @@ public class ConverterModule extends GatewayModule {
     @Override
     public void receive(Message message) {
         try {
-            float temperature = Float.parseFloat(new String(message.getContent()));
+            JSONObject messageFromBle = new JSONObject(new String(message.getContent()));
+            double temperature = messageFromBle.getDouble("temperature");
             Map<String, String> inputProperties = message.getProperties();
 
             HashMap<String, String> properties = new HashMap<>();

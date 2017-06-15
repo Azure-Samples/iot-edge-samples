@@ -23,11 +23,10 @@ Open a command line terminal window and navigate to the working directory:
 
 ## Overall Architecture
 
-The Azure IoT Edge platform heavily adopts the [Von Neumann architecture](https://en.wikipedia.org/wiki/Von_Neumann_architecture). Which means that the entire Azure IoT Edge architecture is a system which processes input and produces output; and that each individual module is also a tiny input-output subsystem. In this tutorial, we will introduce the following three modules:
+The Azure IoT Edge platform heavily adopts the [Von Neumann architecture](https://en.wikipedia.org/wiki/Von_Neumann_architecture). Which means that the entire Azure IoT Edge architecture is a system which processes input and produces output; and that each individual module is also a tiny input-output subsystem. In this tutorial, we will introduce the following two modules:
 
-1. A module which generates a simulated [BLE](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) signal periodically.
-2. A module which receives a [BLE](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) signal and converts it into a formatted [JSON](https://en.wikipedia.org/wiki/JSON) message.
-3. A module which prints the received [JSON](https://en.wikipedia.org/wiki/JSON) message.
+1. A module which receives a simulated [BLE](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) signal and converts it into a formatted [JSON](https://en.wikipedia.org/wiki/JSON) message.
+2. A module which prints the received [JSON](https://en.wikipedia.org/wiki/JSON) message.
 
 The below image displays the typical end-to-end dataflow for this project:
 
@@ -150,52 +149,6 @@ public class MyEdgeModule extends GatewayModule {
 }
 ```
 
-### Simulated BLE Module
-
-| Input | Processor | Output                   | Source File               |
-| ----- | --------- | ------------------------ | ------------------------- |
-| N/A   | N/A       | Temperature data message | `SimulatedBleModule.java` |
-
-This module simulates a [BLE](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) temperature sensor. It uses its own [Timer](https://docs.oracle.com/javase/8/docs/api/java/util/Timer.html) to send randomized temperature data at a fixed rate. It also includes a MAC Address and source type in the message properties.
-
-The values for the message rate and the MAC address are coming from the module configuration string argument of the method (typically a string in the format of a JSON object). In order to get the values from the string we need to first parse the configuration string in the constructor of our module:
-
-```java
-public SimulatedBleModule(long address, Broker broker, String configuration) {
-  super(address, broker, configuration);
-  JSONObject bleConfig = new JSONObject(configuration);
-  this.macAddress = bleConfig.getString("macAddress");
-  this.messagePeriod = bleConfig.getInt("messagePeriod");
-}
-```
-
-When the module is started, a timer needs to be created to send temperature data. We do not need to release any resources (including the timer) because our timer is a [daemon](https://docs.oracle.com/javase/8/docs/api/java/lang/Thread.html#setDaemon-boolean-).
-
-```java
-@Override
-public void start() {
-  new Timer(true).schedule(new TimerTask() {
-    private Random rand = new Random();
-
-    @Override
-    public void run() {
-      try {
-        HashMap<String, String> properties = new HashMap<>();
-        properties.put("source", "bleTelemetry");
-        properties.put("macAddress", SimulatedBleModule.this.macAddress);
-
-        float temperature = this.rand.nextFloat() * 20 + 20;
-        byte[] content = Float.toString(temperature).getBytes();
-        
-        SimulatedBleModule.this.publish(new Message(content, properties));
-      } catch (Exception e) {
-        e.printStackTrace();
-      }
-    }
-  }, 0, this.messagePeriod);
-}
-```
-
 ### Converter Module
 
 | Input                    | Processor                              | Output                 | Source File            |
@@ -208,7 +161,8 @@ This module is a typical Azure IoT Edge module. It accepts temperature messages 
 @Override
 public void receive(Message message) {
   try {
-    float temperature = Float.parseFloat(new String(message.getContent()));
+    JSONObject messageFromBle = new JSONObject(new String(message.getContent()));
+    double temperature = messageFromBle.getDouble("temperature");
     Map<String, String> inputProperties = message.getProperties();
 
     HashMap<String, String> properties = new HashMap<>();
@@ -217,8 +171,8 @@ public void receive(Message message) {
     properties.put("temperatureAlert", temperature > 30 ? "true" : "false");
 
     String content = String.format(
-      "{ \"deviceId\": \"Intel NUC Gateway\", \"messageId\": %d, \"temperature\": %f }",
-      ++this.messageCount, temperature);
+        "{ \"deviceId\": \"Intel NUC Gateway\", \"messageId\": %d, \"temperature\": %f }",
+        ++this.messageCount, temperature);
 
     this.publish(new Message(content.getBytes(), properties));
   } catch (Exception ex) {
@@ -260,23 +214,46 @@ First we need to declare our Java loader (since Azure IoT Edge supports loaders 
 }]
 ```
 
-Once we have declared our loaders we will also need to declare our modules as well. Similar to declaring the loaders, they can also be referenced by their `name` attribute. When declaring a module, we need to specify the loader it should use (which should be the one we defined before) and the entry-point (should be the normalized class name of our module) for each module. Let's take the `SimulatedBleModule` as an example (even if `args` is `null`, you need to include it in the JSON file):
+Once we have declared our loaders we will also need to declare our modules as well. Similar to declaring the loaders, they can also be referenced by their `name` attribute. When declaring a module, we need to specify the loader it should use (which should be the one we defined before) and the entry-point (should be the normalized class name of our module) for each module. The `simulated_device` module is a native module which is included in the Azure IoT Edge core runtime package. You should always include `args` in the JSON file even if it is `null`.
 
 ```json
-"modules": [{
-  "name": "ble",
-  "loader": {
-    "name": "java",
-    "entrypoint": {
-      "class.name": "com/microsoft/azure/gateway/SimulatedBleModule",
-      "class.path": "./ble-converter-1.0-with-deps.jar"
+"modules": [
+  {
+    "name": "simulated_device",
+    "loader": {
+      "name": "native",
+      "entrypoint": {
+        "module.path": "simulated_device"
+      }
+    },
+    "args": {
+      "macAddress": "01:02:03:03:02:01",
+      "messagePeriod": 500
     }
   },
-  "args": {
-    "macAddress": "01:02:03:03:02:01",
-    "messagePeriod": 1000
+  {
+    "name": "converter",
+    "loader": {
+      "name": "java",
+      "entrypoint": {
+        "class.name": "com/microsoft/azure/gateway/ConverterModule",
+        "class.path": "./ble-converter-1.0-with-deps.jar"
+      }
+    },
+    "args": null
+  },
+  {
+    "name": "print",
+    "loader": {
+      "name": "java",
+      "entrypoint": {
+        "class.name": "com/microsoft/azure/gateway/PrinterModule",
+        "class.path": "./ble-converter-1.0-with-deps.jar"
+      }
+    },
+    "args": null
   }
-}]
+]
 ```
 
 At the end of the configuration, we establish the connections. Each connection is expressed by `source` and `sink`. They should both reference a pre-defined module. The output message of `source` module will be forwarded to the input of `sink` module.
@@ -284,7 +261,7 @@ At the end of the configuration, we establish the connections. Each connection i
 ```json
 "links": [
   {
-    "source": "ble",
+    "source": "simulated_device",
     "sink": "converter"
   },
   {
