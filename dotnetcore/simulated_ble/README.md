@@ -18,6 +18,11 @@ The following software is required:
 2. [.NET Core SDK](https://www.microsoft.com/net/core#windowscmd)
 3. [Visual Studio Code](https://code.visualstudio.com/)
 
+**NOTE:** You do not need to clone the repo for this sample, however all of the sample code discussed in this tutorial is located in the `Azure-Samples` repository below.
+
+- `git clone https://github.com/Azure-Samples/iot-edge-samples.git`.
+- `cd iot-edge-samples/dotnetcore/simulated_ble`
+
 ## Getting Started
 
 1. Install `.NET Core SDK`.
@@ -361,6 +366,8 @@ Copy-Item -Path $env:userprofile\.nuget\packages\system.collections.specialized\
 
 31. Run the sample project by typing "**.\gw.exe gw-config.json**" into the `Integrated Terminal` window prompt. 
     - If you have followed the steps in this tutorial closely you should now be running the `Azure IoT Edge BLE Data Converter Module` sample project as seen in the image below.
+    - If you want to terminate the application, press the `<Enter>` key.
+    - ⚠ It is not recommended to use `Ctrl` + `C` to terminate the `IoT Edge` gateway application (i.e. **gw.exe**). As this may cause the process to terminate abnormally.
 
         ![](images/VSCode_Run.png)
 
