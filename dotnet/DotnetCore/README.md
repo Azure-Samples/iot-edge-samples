@@ -124,7 +124,7 @@ namespace IoTEdgeConverterModule
 }
 ```
 
-11. Save the file by pressing `Crtl` + `S`.
+11. Save the file by pressing `Ctrl` + `S`.
 
 12. Create a new file by pressing the `Ctrl` + `N` keys, this will create a new file called `Untitled-1` as seen in the image below.
 
@@ -148,7 +148,7 @@ namespace IoTEdgeConverterModule
 }
 ```
 
-14. Save the file as `BleData.cs` by pressing `Crtl` + `Shift` + `S` keys.
+14. Save the file as `BleData.cs` by pressing `Ctrl` + `Shift` + `S` keys.
     - On the save as dialog box, in the `Save as Type` dropdown menu, select `C# (*.cs;*.csx)` as seen in the below image.
 
     ![](Images/VSCode_SaveAs.png)
@@ -210,7 +210,7 @@ namespace PrinterModule
 }
 ```
 
-17. Save the file as `DotNetPrinterModule.cs` by pressing `Crtl` + `Shift` + `S`.
+17. Save the file as `DotNetPrinterModule.cs` by pressing `Ctrl` + `Shift` + `S`.
     - On the save as dialog box, in the `Save as Type` dropdown menu, select `C# (*.cs;*.csx)`.
 
 18. Create a new file by pressing the `Ctrl` + `N` keys.
@@ -239,7 +239,7 @@ namespace PrinterModule
 }
 ```
 
-20. Save the file as `BleConverterData.cs` by pressing `Crtl` + `Shift` + `S`.
+20. Save the file as `BleConverterData.cs` by pressing `Ctrl` + `Shift` + `S`.
     - On the save as dialog box, in the `Save as Type` dropdown menu, select `C# (*.cs;*.csx)`.
 
 21. Create a new file by pressing the `Ctrl` + `N` keys.
@@ -309,7 +309,7 @@ namespace PrinterModule
 }
 ```
 
-23. Save the file as `gw-config.json` by pressing `Crtl` + `Shift` + `S`.
+23. Save the file as `gw-config.json` by pressing `Ctrl` + `Shift` + `S`.
     - On the save as dialog box, in the `Save as Type` dropdown menu, select `JSON (*.json;*.bowerrc;*.jshintrc;*.jscsrc;*.eslintrc;*.babelrc;*webmanifest)`.
 
 24. Update the `IoTEdgeConverterModule.csproj` with the below XML blob to enable copying of the configuration file to the output directory.
@@ -342,7 +342,7 @@ Copy-Item -Path $env:userprofile\.nuget\packages\system.collections.nongeneric\4
 Copy-Item -Path $env:userprofile\.nuget\packages\system.collections.specialized\4.3.0\lib\netstandard1.3\* -Destination .\bin\Debug\netstandard1.3
 ```
 
-27. Save the file as `binplace.ps1` by pressing `Crtl` + `Shift` + `S`.
+27. Save the file as `binplace.ps1` by pressing `Ctrl` + `Shift` + `S`.
     - On the save as dialog box, in the `Save as Type` dropdown menu, select `PowerShell (*.ps1;*.psm1;*.psd1;*.pssc;*.psrc)`.
 
 28. Buld the project (`Ctrl` + `Shift` + `B`), since this is the first time you have built the project `Visual Studio Code` will prompt you with the `No build task defined.` dialog as seen below.
