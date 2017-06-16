@@ -44,7 +44,7 @@ Please view this [quick video tutorial](https://channel9.msdn.com/Blogs/dotnet/G
 
 ```xml
   <ItemGroup>
-    <PackageReference Include="Microsoft.Azure.Devices.Gateway.Module.NetStandard" Version="1.0.4" />
+    <PackageReference Include="Microsoft.Azure.Devices.Gateway.Module.NetStandard" Version="1.0.5" />
     <PackageReference Include="System.Threading.Thread" Version="4.3.0" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.2" />
   </ItemGroup> 
