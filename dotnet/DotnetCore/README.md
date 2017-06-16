@@ -51,7 +51,7 @@ Please view this [quick video tutorial](https://channel9.msdn.com/Blogs/dotnet/G
 ```
 6. Once you save the `.csproj` file `Visual Studio Code` should prompt you with an `unresolved dependencies` dialog as seen in the image below. 
 
-	![](Images/VSCode_restore.png)
+	![](Images/VSCode_Restore.png)
 
 	- Click `Restore` to restore all of the references in the projects `.csproj` file including the `PackageReferences` we have just added. 
 	- You'll see a new `project.assets.json` file in your projects `obj` folder. This file contains information about your project's dependencies to make subsequent restores quicker.
@@ -63,7 +63,7 @@ Please view this [quick video tutorial](https://channel9.msdn.com/Blogs/dotnet/G
 	
 7. Rename the `Class1.cs` file to `BleConverterModule.cs` by clicking on the file and pressing the `F2` key then typing **BleConverterModule** as seen in the image below.
 
-    ![](Images/VSCode_rename.png)
+    ![](Images/VSCode_Rename.png)
 
 8. Replace the existing code in the `BleConverterModule.cs` file by copying and pasting the below code snippit into your `BleConverterModule.cs` file.
 
