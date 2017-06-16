@@ -130,7 +130,7 @@ namespace IoTEdgeConverterModule
 
     ![](Images/VSCode_NewFile.png)
 
-13. Copy the below code into the `Untitled-1` file code editor window. This is the class that we will use to deserialize the `JSON` object data that we receive from the simulated `BLE` device.
+13. Copy the below code into the `Untitled-1` file code editor window. This is the class that we will use to deserialize the `JSON` object that we receive from the simulated `BLE` device.
 
 **C#:**
 
@@ -215,7 +215,7 @@ namespace PrinterModule
 
 18. Create a new file by pressing the `Ctrl` + `N` keys.
 
-19. Copy and paste the below code snippit into the `Untitled-1` file. This is the class that we will use to deserialize the `JSON` object data that we receive from the simulated `BleConverterModule`.
+19. Copy and paste the below code snippit into the `Untitled-1` file. This is the class that we will use to deserialize the `JSON` object that we receive from the `BleConverterModule`.
 
 **C#:**
 
