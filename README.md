@@ -53,3 +53,4 @@ If you encounter an issue related to these samples please [submit a new issue](h
 5. Click `Debug` and update the `Executable` option to `$(OutDir)gw.exe` and the `Application arguments:` to `module_dev_sample.json`.
 6. Build the `NetstandardModuleSample` project (Ctrl + Shift + B).
 7. Click the `Start` button in the `Visual Studio 2017 IDE` or press the F5 key.
+8. Press the `Enter` key to exit the `Azure IoT Edge` gateway process.
