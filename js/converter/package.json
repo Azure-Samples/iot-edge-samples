@@ -1,15 +1,14 @@
 {
-  "name": "simple",
+  "name": "converter",
   "version": "1.0.0",
-  "description": "Simple sensor and printer modules run on Azure IoT Edge.",
+  "description": "BLE converter and printer sample modules for Azure IoT Edge.",
   "repository": {
     "type": "git",
     "url": "https://github.com/Azure-Samples/azure-iot-gateway-sample"
   },
   "main": "app.js",
   "scripts": {
-    "local": "node app.js local",
-    "cloud": "node app.js cloud"
+    "local": "node app.js local"
   },
   "author": "Microsoft Corporation",
   "license": "MIT",
