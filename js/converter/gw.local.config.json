@@ -1,0 +1,53 @@
+{
+  "loaders": [
+    {
+      "type": "node",
+      "name": "node"
+    }
+  ],
+  "modules": [
+    {
+      "name": "simulated_device",
+      "loader": {
+        "name": "native",
+        "entrypoint": {
+          "module.path": "simulated_device"
+        }
+      },
+      "args": {
+        "macAddress": "01:02:03:03:02:01",
+        "messagePeriod": 500
+      }
+    },
+    {
+      "name": "converter",
+      "loader": {
+        "name": "node",
+        "entrypoint": {
+          "main.path": "modules/converter.js"
+        }
+      },
+      "args": null
+    },
+    {
+      "name": "printer",
+      "loader": {
+        "name": "node",
+        "entrypoint": {
+          "main.path": "modules/printer.js"
+        }
+      },
+      "args": null
+    }
+  ],
+  "links": [
+    {
+      "source": "simulated_device",
+      "sink": "converter"
+    },
+    {
+      "source": "converter",
+      "sink": "printer"
+    }
+  ]
+}
