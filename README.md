@@ -49,5 +49,7 @@ If you encounter an issue related to these samples please [submit a new issue](h
 1. `git clone https://github.com/Azure-Samples/iot-edge-samples.git`
 2. `cd iot-edge-samples\dotnet\visualstudio\2017\netstandard\NetstandardModuleSample`
 3. Open the `NetstandardModuleSample.sln` solution file.
-4. Build the NetstandardModuleSample project (Ctrl + Shift + B).
-5. Click the `Start` button in the Visual Studio 2017 IDE or press the F5 key.
+4. In the `Visual Studio 2017 IDE` Solution Explorer right click the `NetstandardModuleSample` and select `properties` from the context menu.
+5. Click `Debug` and update the `Executable` option to `$(OutDir)gw.exe` and the `Application arguments:` to `module_dev_sample.json`.
+6. Build the `NetstandardModuleSample` project (Ctrl + Shift + B).
+7. Click the `Start` button in the `Visual Studio 2017 IDE` or press the F5 key.
