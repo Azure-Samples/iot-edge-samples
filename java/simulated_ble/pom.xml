@@ -1,0 +1,73 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <!-- Inherit from parent -->
+  <parent>
+    <groupId>com.microsoft.azure.gateway</groupId>
+    <artifactId>gateway-module-base</artifactId>
+    <version>1.0.1</version>
+  </parent>
+
+  <groupId>com.microsoft.azure.gateway</groupId>
+  <artifactId>ble-converter</artifactId>
+  <version>1.0</version>
+  <packaging>jar</packaging>
+
+  <!-- Set the filename of the Azure IoT Edge configuration located
+       under ./src/main/resources/gateway/ which is used in parent -->
+  <properties>
+    <gw.config.fileName>gw-config.json</gw.config.fileName>
+  </properties>
+
+  <dependencies>
+    <!-- Re-declare dependencies used in parent -->
+    <dependency>
+      <groupId>com.microsoft.azure.gateway</groupId>
+      <artifactId>gateway-java-binding</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>${dependency.runtime.group}</groupId>
+      <artifactId>${dependency.runtime.name}</artifactId>
+    </dependency>
+
+    <!-- Java JSON Parser -->
+    <dependency>
+      <groupId>org.json</groupId>
+      <artifactId>json</artifactId>
+      <version>20170516</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <!-- Re-declare plugins used in parent -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+      </plugin>
+
+      <!-- Modern Java Features -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.6.1</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
