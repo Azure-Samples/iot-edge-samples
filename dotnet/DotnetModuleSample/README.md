@@ -4,7 +4,7 @@
 Overview
 ========
 
-This sample showcases how one might build modules for Azure IoT Edge in .NET.
+This sample showcases how one might build modules for `Azure IoT Edge` in .NET.
 
 The sample contains:
 
@@ -26,12 +26,19 @@ How does the data flow through the IoT Edge
 ===========================================
 You can find the diagram for Receiving a message and publishing a message on this flow chart:
 
-![](./images/flow_chart.png)
+![](../../images/flow_chart.png)
 
 Running the sample
 ==================
-1. Build the DotnetModuleSample project (Ctrl + Shift + B).
-2. Click the `Start` button in the Visual Studio 2015 IDE or press the F5 key.
+1. Build the DotnetModuleSample project (`Ctrl` + `Shift` + `B`).
+2. Click on the `DotnetModuleSample` and press `Alt` + `Enter` to open the `DotnetModuleSample` properties tab.
+3. Click on the `Debug` option on the left hand side of the tab.
+4. Update the `Executable` text box with the location and name of the executable to run by typing "**&lt;path to your output directory&gt;\gw.exe**" as seen in the image below.
+5. Update the `Application arguments` text box with the arguments to be supplied the the Executable during execution by typing "**module_dev_sample.json**" as seen in the image below.
+
+    ![](../../images/Dotnet_properties.png)
+
+6. Click the `Start` button in the `Visual Studio 2015` IDE or press the `F5` key.
 
 **NOTE:** If you are making your own `Azure IoT Edge` module project and are unable to get the `Microsoft.Azure.Devices.Gateway.Native.Windows.x64` NuGet package binaries to bin place to the output directory you will need to add the below `XML` to your `.csproj` file to invoke the targets file before the MSBuild process builds your project.
 

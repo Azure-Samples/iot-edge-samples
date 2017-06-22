@@ -37,7 +37,7 @@
     <StartProgram>$(SolutionDir)DotnetModuleSample\bin\Release\gw.exe</StartProgram>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Azure.IoT.Gateway">
+    <Reference Include="Microsoft.Azure.IoT.Gateway, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Azure.IoT.Gateway.Module.1.0.6\lib\net40\Microsoft.Azure.IoT.Gateway.dll</HintPath>
       <Private>True</Private>
     </Reference>
