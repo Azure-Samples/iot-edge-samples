@@ -6,15 +6,13 @@
 
   // node app.js [local | cloud ]
   if (process.argv.length < 3) {
-    throw 'Calling pattern should be node app.js [local | cloud].';
+    throw 'Calling pattern should be node app.js local.';
   }
 
   const option = process.argv[2];
 
   if (option === 'local') {
     config_path = './gw.local.config.json';
-  } else if (option === 'cloud') {
-    config_path = './gw.cloud.config.json';
   } else {
     throw 'Invalid option to start app.js !';
   }

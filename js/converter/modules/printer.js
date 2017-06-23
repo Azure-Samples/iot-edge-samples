@@ -16,7 +16,7 @@ module.exports = {
     let content = Buffer.from(message.content).toString('utf8');
 
     console.log(`printer.receive.properties - ${properties}`);
-    console.log(`printer.receive.content - ${content}`);
+    console.log(`printer.receive.content - ${content}\n`);
   },
 
   destroy: function () {
