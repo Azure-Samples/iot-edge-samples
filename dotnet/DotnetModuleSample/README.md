@@ -10,7 +10,7 @@ The sample contains:
 
 1. A printer module (C#) that interprets telemetry from sensor and prints its content and properties into Console.
 2. A sensor module (C#) that publishes random data to the IoT Edge.
-3. The .NET Microsoft.Azure.IoT.Gateway interface assembly.
+3. The .NET `Microsoft.Azure.IoT.Gateway` interface assembly.
 4. A sample native (C) IoT Edge executable (gw.exe) file.
 5. The native (C) binding layer interfaces for .NET, Java, and NodeJs (C). Which includes `aziotsharedutil.dll`, `dotnet.dll`, `dotnetcore.dll`, `gateway.dll`, `gw.exe`, `identity_map.dll`, `iothub.dll`, `iothub_client.dll`, `iothub_service_client.dll`, `java_module_host.dll`, `logger.dll`, `nanomsg.dll`, `node.dll`, `nodejs_binding.dll`, `simulated_device.dll`, and `serializer.dll`.
 6. The `Microsoft.Azure.IoT.Gateway.dll` (C#) which contains the Azure IoT Edge module interface definition.

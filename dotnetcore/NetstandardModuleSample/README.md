@@ -13,12 +13,12 @@ The sample contains:
 3. The .NET Core `Microsoft.Azure.Devices.Gateway` interface assembly.
 4. A sample native (C) IoT Edge executable (gw.exe) file.
 5. The native (C) binding layer interfaces for .NET, Java, and NodeJs (C). Which includes `aziotsharedutil.dll`, `dotnet.dll`, `dotnetcore.dll`, `gateway.dll`, `gw.exe`, `identity_map.dll`, `iothub.dll`, `iothub_client.dll`, `iothub_service_client.dll`, `java_module_host.dll`, `logger.dll`, `nanomsg.dll`, `node.dll`, `nodejs_binding.dll`, `simulated_device.dll`, and `serializer.dll`.
-6. The `Microsoft.Azure.IoT.Gateway.dll` (C#) which contains the Azure IoT Edge module interface definition.
+6. The `Microsoft.Azure.Devices.Gateway.dll` (C#) which contains the Azure IoT Edge module interface definition.
 7. A `module_dev_sample.json` file that is used to configure which module the IoT Edge will use.
 
 Prerequisites
 =============
-1. Microsoft Visual Studio 2017.
+1. Microsoft [Visual Studio 2017](https://docs.microsoft.com/en-us/visualstudio/install/install-visual-studio).
 2. Make sure you have [.NET Core SDK](https://www.microsoft.com/net/core#windowscmd) installed.
 3. The [Microsoft .NET Framework 4.5](https://www.microsoft.com/en-us/download/details.aspx?id=30653).
 
