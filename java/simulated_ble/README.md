@@ -30,7 +30,7 @@ The Azure IoT Edge platform heavily adopts the [Von Neumann architecture](https:
 
 The below image displays the typical end-to-end dataflow for this project:
 
-![Dataflow between three modules](dataflow.png "Input: Simulated BLE Module; Processor: Converter Module; Output: Printer Module")
+![Dataflow between three modules](../../images/dataflow.png "Input: Simulated BLE Module; Processor: Converter Module; Output: Printer Module")
 
 ## Understanding the Code
 
@@ -279,4 +279,5 @@ Use `mvn exec:exec` to run the Azure IoT Edge and you should observe that the te
 
 If you want to terminate the application, press `<Enter>` key.
 
-> ⚠ **DO NOT** use Ctrl+C to terminate the IoT Edge, it might cause some side-effects.
+> ⚠ It is not recommended to use Ctrl + C to terminate the IoT Edge gateway application. As this may cause the process to terminate abnormally.
+
