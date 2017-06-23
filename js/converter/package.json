@@ -8,7 +8,7 @@
   },
   "main": "app.js",
   "scripts": {
-    "local": "node app.js local"
+    "start": "node app.js"
   },
   "author": "Microsoft Corporation",
   "license": "MIT",
