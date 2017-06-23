@@ -41,7 +41,7 @@ Please view this [quick video tutorial](https://channel9.msdn.com/Blogs/dotnet/G
 3. Open the project in `Visual Studio Code` by typing "**code .**".
 4. Once the project is opened in `Visual Studio Code`, in the file view to the left, click on the "**IoTEdgeConverterModule.csproj**". This will open the `IoTEdgeConverterModule.csproj` file in the code editor window to the right of the file view as shown in the image below.
 
-	![](images/VSCode_EditCsproj.png)
+	![](../../images/VSCode_EditCsproj.png)
 
 5. Insert the `XML` blob shown in the code snippet below between the closing `PropertyGroup` tag and the closing `Project` tag; line six in the above image and save the file (`Ctrl + S`).
 
@@ -56,7 +56,7 @@ Please view this [quick video tutorial](https://channel9.msdn.com/Blogs/dotnet/G
 ```
 6. Once you save the `.csproj` file `Visual Studio Code` should prompt you with an `unresolved dependencies` dialog as seen in the image below. 
 
-	![](images/VSCode_Restore.png)
+	![](../../images/VSCode_Restore.png)
 
 	- Click `Restore` to restore all of the references in the projects `.csproj` file including the `PackageReferences` we have just added. 
 	- You'll see a new `project.assets.json` file in your projects `obj` folder. This file contains information about your project's dependencies to make subsequent restores quicker.
@@ -68,7 +68,7 @@ Please view this [quick video tutorial](https://channel9.msdn.com/Blogs/dotnet/G
 	
 7. Rename the `Class1.cs` file to `BleConverterModule.cs` by clicking on the file and pressing the `F2` key then typing **BleConverterModule** as seen in the image below.
 
-    ![](images/VSCode_Rename.png)
+    ![](../../images/VSCode_Rename.png)
 
 8. Replace the existing code in the `BleConverterModule.cs` file by copying and pasting the below code snippit into your `BleConverterModule.cs` file.
 
@@ -133,7 +133,7 @@ namespace IoTEdgeConverterModule
 
 12. Create a new file by pressing the `Ctrl` + `N` keys, this will create a new file called `Untitled-1` as seen in the image below.
 
-    ![](images/VSCode_NewFile.png)
+    ![](../../images/VSCode_NewFile.png)
 
 13. Copy the below code into the `Untitled-1` file code editor window. This is the class that we will use to deserialize the `JSON` object that we receive from the simulated `BLE` device.
 
@@ -156,7 +156,7 @@ namespace IoTEdgeConverterModule
 14. Save the file as `BleData.cs` by pressing `Ctrl` + `Shift` + `S` keys.
     - On the save as dialog box, in the `Save as Type` dropdown menu, select `C# (*.cs;*.csx)` as seen in the below image.
 
-    ![](images/VSCode_SaveAs.png)
+    ![](../../images/VSCode_SaveAs.png)
 
 15. Create a new file by pressing the `Ctrl` + `N` keys, this will create a new file called `Untitled-1`.
 
@@ -329,7 +329,7 @@ namespace PrinterModule
     
 - The updated `IoTEdgeConverterModule.csproj` should look like the image below.
 
-    ![](images/VSCode_UpdateCsproj.png)
+    ![](../../images/VSCode_UpdateCsproj.png)
 
 25. Create a new file by pressing the `Ctrl` + `N` keys.
 
@@ -352,12 +352,12 @@ Copy-Item -Path $env:userprofile\.nuget\packages\system.collections.specialized\
 
 28. Buld the project (`Ctrl` + `Shift` + `B`), since this is the first time you have built the project `Visual Studio Code` will prompt you with the `No build task defined.` dialog as seen below.
 
-	![](images/VSCode_BuildTask.png)
+	![](../../images/VSCode_BuildTask.png)
 
 	- Click the `Configure Build Task` button.
 	- This will bring up the `Select a Task Runner` dialog dropdown menu. Since this is a `.NET Core` project, select `.Net Core` as seen in the image below. This will create the `tasks.json` file in your `.vscode` directory and open the file in the `code editor` window. There is no need to modify this file, simply close the tab by pressing (`Ctrl` + `F4`) or using the close button on the `tasks.json` tab itself.
 
-	![](images/VSCode_BuildTaskRunner.png)
+	![](../../images/VSCode_BuildTaskRunner.png)
 
 29.  Open the `Visual Studio Code` integrated terminal window by pressing the `Ctrl` + `backtick` keys or using the menus `View` -> `Integrated Terminal` and type "**.\binplace.ps1**" into the `PowerShell` command prompt. This will copy all our dependencies to the output directory.
 
@@ -369,6 +369,6 @@ Copy-Item -Path $env:userprofile\.nuget\packages\system.collections.specialized\
     - If you want to terminate the application, press the `<Enter>` key.
     - ⚠ It is not recommended to use `Ctrl` + `C` to terminate the `IoT Edge` gateway application (i.e. **gw.exe**). As this may cause the process to terminate abnormally.
 
-        ![](images/VSCode_Run.png)
+        ![](../../images/VSCode_Run.png)
 
 
