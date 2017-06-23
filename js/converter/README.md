@@ -2,7 +2,7 @@
 
 ## Overview
 
-This tutorial showcases how one might build a module for Azure IoT Edge in NODEJS.
+This tutorial showcases how one might build a module for Azure IoT Edge in JS.
 
 In this tutorial, we will walk through environment setup and how to write a [BLE](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) data converter module using the latest Azure IoT Edge NPM packages.
 
@@ -28,6 +28,7 @@ The below image displays the typical end-to-end dataflow for this project:
 ![Dataflow between three modules](../../images/dataflow.png "Input: Simulated BLE Module; Processor: Converter Module; Output: Printer Module")
 
 ## Step-by-step
+Below we will show you how to quickly setup environment to start to write your first BLE converter module with JS.
 
 ### Create module project
 1. Open a command-line window, run `yo az-iot-gw-module`.
@@ -36,13 +37,22 @@ The below image displays the typical end-to-end dataflow for this project:
 ### Project structure
 A traditional JS module project is consist of：
 
-`modules` - The customized JS module source files.
+`modules` - The customized JS module source files. Please replace the default `sensor.js` and `printer.js` with your own module files.
+
 `app.js` - The entry file to start the Edge instance.
+
 `gw.config.json` - The configuration file to customize the modules to be loaded by Edge.
+
 `package.json` - The metadata information for module project.
+
 `README.md` - The basic documentation for module project.
 
+
 ### Package File
+
+Ths `package.json` declares all the metadata information needed by a module project which includes the name, version, entry, scripts, runtime and development dependencies.
+
+Below code snippet shows how to configure for BLE converter sample project.
 ```json
 {
   "name": "converter",
@@ -68,7 +78,8 @@ A traditional JS module project is consist of：
 
 
 ### Entry File
-By default, you don't need to make any change on this file.
+The `app.js` defines the way to initialize the edge instance. Here we don't need to make any change.
+
 ```javascript
 (function() {
   'use strict';
@@ -87,6 +98,16 @@ By default, you don't need to make any change on this file.
 ```
 
 ### Interface of Module
+You can treat an Azure IoT Edge module as a data processor whose job is to: receive input, process it, and produce output.
+
+The input might be data from hardware (like a motion detector), a message from other modules, or anything else (like a random number generated periodically by a timer).
+
+The output is similar to the input, it could trigger hardware behavior (like the blinking LED), a message to other modules, or anything else (like printing to the console).
+
+Modules communicate with each other using `message` object. The **content** of a `message` is a byte array which is capable of representing any kind of data you like. **properties** are also available in the `message` and are simply a string-to-string mapping. You may think of **properties** as the headers in a HTTP request, or the metadata of a file.
+
+In order to develop an Azure IoT Edge module in JS, you need to create a new module object which implements the required methods `receive()`. At this point you may also choose to implement the optional `create()` or `start()`, or `destroy()` methods as well. The following code snippet shows you the scaffolding of JS module object.
+
 ```javascript
 'use strict';
 
@@ -95,9 +116,19 @@ module.exports = {
   configuration: null,
 
   create: function (broker, configuration) {
+    // Default implementation.
+    this.broker = broker;
+    this.configuration = configuration;
+
+    return true;
+  },
+
+  start: function () {
+    // Produce
   },
 
   receive: function (message) {
+    // Consume
   },
 
   destroy: function () {
@@ -153,6 +184,7 @@ receive: function (message) {
 | Any message from other modules | N/A       | Log the message to console | `printer.js` |
 
 This is a very simple, self-explanatory, module which outputs the received messages(property, content) to the terminal window.
+
 ```javascript
 receive: function (message) {
   let properties = JSON.stringify(message.properties);
@@ -167,6 +199,7 @@ receive: function (message) {
 The final step before running the modules is to configure the Azure IoT Edge and to establish the connections between modules.
 
 First we need to declare our `node` loader (since Azure IoT Edge supports loaders of different languages) which could be referenced by its `name` in the sections afterward.
+
 ```json
 "loaders": [
   {
@@ -177,6 +210,7 @@ First we need to declare our `node` loader (since Azure IoT Edge supports loader
 ```
 
 Once we have declared our loaders we will also need to declare our modules as well. Similar to declaring the loaders, they can also be referenced by their `name` attribute. When declaring a module, we need to specify the loader it should use (which should be the one we defined before) and the entry-point (should be the normalized class name of our module) for each module. The `simulated_device` module is a native module which is included in the Azure IoT Edge core runtime package. You should always include `args` in the JSON file even if it is `null`.
+
 ```json
 "modules": [
   {
@@ -216,6 +250,7 @@ Once we have declared our loaders we will also need to declare our modules as we
 ```
 
 At the end of the configuration, we establish the connections. Each connection is expressed by `source` and `sink`. They should both reference a pre-defined module. The output message of `source` module will be forwarded to the input of `sink` module.
+
 ```json
 "links": [
   {
@@ -230,6 +265,9 @@ At the end of the configuration, we establish the connections. Each connection i
 ```
 
 ## Running the Modules
-`npm install`
-`npm start`
+1. `npm install`
+2. `npm start`
 
+If you want to terminate the application, press `<Enter>` key.
+
+> ⚠ It is not recommended to use Ctrl + C to terminate the IoT Edge application. As this may cause the process to terminate abnormally.
