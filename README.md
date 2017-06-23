@@ -5,7 +5,7 @@ If you encounter an issue related to these samples please [submit a new issue](h
 
 <br>
 
-## How to run JavaScript modules (Windows 10/Ubuntu Linux 14+)
+## How to run the JavaScript module sample (Windows 10/Ubuntu 14+)
 ### Prerequisites
 1. Install latest [Git Client](https://git-scm.com/downloads).
 2. Install latest [Node LTS](https://nodejs.org).
@@ -17,7 +17,7 @@ If you encounter an issue related to these samples please [submit a new issue](h
 
 <br>
 
-## How to run Java modules (Windows 10/Ubuntu Linux 14+)
+## How to run the Java module sample (Windows 10/Ubuntu 14+)
 ### Prerequisites
 1. Install latest [Git Client](https://git-scm.com/downloads).
 2. Install latest x64 version of [JRE](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html).
@@ -30,13 +30,30 @@ If you encounter an issue related to these samples please [submit a new issue](h
 
 <br>
 
-## How to run .NET modules (Windows 10)
+## How to run the .NET module sample (Windows 10)
 ### Prerequisites
-1. Install latest [Git Client](https://https://git-scm.com/downloads).
-2. Install Visual Studio 2015 with Update 3.
+1. Install latest [Git Client](https://git-scm.com/downloads).
+2. Install `Visual Studio 2015` with Update 3.
 ### Quick Start
 1. `git clone https://github.com/Azure-Samples/iot-edge-samples.git`
-2. `cd iot-edge-samples/dotnet`
-3. Open `\DotnetModuleSample\DotnetModuleSample.sln` with and build the solution.
-4. Build the DotnetModuleSample project (Ctrl + Shift + B).
-5. Click the `Start` button in the Visual Studio 2015 IDE or press the F5 key.
+2. `cd iot-edge-samples\dotnet\nuget_sample\src`
+3. Open the `DotnetModuleSample.sln` solution file.
+4. In the `Visual Studio 2015` IDE `Solution Explorer` right click the `DotnetModuleSample` and select `properties` from the context menu.
+5. Click `Debug` and update the `Executable` text box with the location and name of the executable to run by typing "**&lt;path to your output directory&gt;\gw.exe**" and update the `Application arguments:` to `module_dev_sample.json`.
+6. Build the DotnetModuleSample project (`Ctrl` + `Shift` + `B`).
+7. Click the `Start` button in the `Visual Studio 2015` IDE or press the `F5` key.
+8. Press the `Enter` key to exit the `Azure IoT Edge` gateway process.
+
+## How to run .NET Standard v1.3 module sample (Windows 10)
+### Prerequisites
+1. Install latest [Git Client](https://git-scm.com/downloads).
+2. Install `Visual Studio 2017`.
+### Quick Start
+1. `git clone https://github.com/Azure-Samples/iot-edge-samples.git`
+2. `cd iot-edge-samples\dotnetcore\nuget_sample\src`
+3. Open the `NetstandardModuleSample.sln` solution file.
+4. In the `Visual Studio 2017 IDE` Solution Explorer right click the `NetstandardModuleSample` and select `properties` from the context menu.
+5. Click `Debug` and update the `Executable` option to `$(OutDir)gw.exe` and the `Application arguments:` to `module_dev_sample.json`.
+6. Build the `NetstandardModuleSample` project (`Ctrl` + `Shift` + `B`).
+7. Click the `Start` button in the `Visual Studio 2017 IDE` or press the `F5` key.
+8. Press the `Enter` key to exit the `Azure IoT Edge` gateway process.
