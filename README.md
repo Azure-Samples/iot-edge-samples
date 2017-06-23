@@ -32,7 +32,7 @@ If you encounter an issue related to these samples please [submit a new issue](h
 
 ## How to run the .NET module sample (Windows 10)
 ### Prerequisites
-1. Install latest [Git Client](https://https://git-scm.com/downloads).
+1. Install latest [Git Client](https://git-scm.com/downloads).
 2. Install `Visual Studio 2015` with Update 3.
 ### Quick Start
 1. `git clone https://github.com/Azure-Samples/iot-edge-samples.git`
