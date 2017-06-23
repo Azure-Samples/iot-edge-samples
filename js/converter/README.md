@@ -2,7 +2,7 @@
 
 ## Overview
 
-This tutorial showcases how one might build a module for Azure IoT Edge in JS.
+This tutorial showcases how to create a module for Azure IoT Edge in JS.
 
 In this tutorial, we will walk through environment setup and how to write a [BLE](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) data converter module using the latest Azure IoT Edge NPM packages.
 
@@ -35,7 +35,7 @@ Below we will show you how to quickly setup environment to start to write your f
 2. Follow the steps on the screen to finish the initialization of your module project.
 
 ### Project structure
-A traditional JS module project is consist of：
+A JS module project consists of the following components:
 
 `modules` - The customized JS module source files. Please replace the default `sensor.js` and `printer.js` with your own module files.
 
