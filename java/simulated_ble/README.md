@@ -280,3 +280,4 @@ Use `mvn exec:exec` to run the Azure IoT Edge and you should observe that the te
 If you want to terminate the application, press `<Enter>` key.
 
 > ⚠ It is not recommended to use Ctrl + C to terminate the IoT Edge gateway application. As this may cause the process to terminate abnormally.
+
