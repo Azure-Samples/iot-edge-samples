@@ -12,9 +12,11 @@ module.exports = {
   },
 
   receive: function (message) {
-    let data = Buffer.from(message.content).toString('utf8');
+    let properties = JSON.stringify(message.properties);
+    let content = Buffer.from(message.content).toString('utf8');
 
-    console.log(`printer.receive - ${data}`);
+    console.log(`printer.receive.properties - ${properties}`);
+    console.log(`printer.receive.content - ${content}`);
   },
 
   destroy: function () {

@@ -12,8 +12,39 @@ module.exports = {
   },
 
   receive: function (message) {
+    // Initialize the messageCount in global object at first time.
+    if (!global.messageCount) {
+      global.messageCount = 0;
+    }
+
+    // Read the content and properties objects from message.
+    let rawContent = JSON.parse(Buffer.from(message.content).toString('utf8'));
+    let rawProperties = message.properties;
+
+    // Generate new properties object.
+    let newProperties = {
+      source: rawProperties.source,
+      macAddress: rawProperties.macAddress,
+      temperatureAlert: rawProperties.temperature > 30
+    };
+
+    // Generate new content object.
+    let newContent = {
+      deviceId: 'Simulated IoT Edge',
+      messageId: ++global.messageCount,
+      temperature: rawContent.temperature
+    };
+
+    // Publish the new message to broker.
+    this.broker.publish(
+      {
+        properties: newProperties,
+        content: new Uint8Array(Buffer.from(JSON.stringify(newContent), 'utf8'))
+      }
+    );
   },
 
   destroy: function () {
+    console.log('converter.destroy');
   }
 };

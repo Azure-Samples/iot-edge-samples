@@ -4,7 +4,7 @@
   "description": "Simple sensor and printer modules run on Azure IoT Edge.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Azure-Samples/azure-iot-gateway-sample"
+    "url": "https://github.com/Azure-Samples/iot-edge-samples"
   },
   "main": "app.js",
   "scripts": {
@@ -16,6 +16,6 @@
   "dependencies": {
   },
   "devDependencies": {
-    "azure-iot-gateway": "~1.1.0"
+    "azure-iot-gateway": "~1.1.3"
   }
 }
