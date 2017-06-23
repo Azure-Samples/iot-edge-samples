@@ -25,12 +25,12 @@ module.exports = {
     let newProperties = {
       source: rawProperties.source,
       macAddress: rawProperties.macAddress,
-      temperatureAlert: rawProperties.temperature > 30
+      temperatureAlert: rawContent.temperature > 30 ? 'true' : 'false'
     };
 
     // Generate new content object.
     let newContent = {
-      deviceId: 'Simulated IoT Edge',
+      deviceId: 'Intel NUC Gateway',
       messageId: ++global.messageCount,
       temperature: rawContent.temperature
     };
