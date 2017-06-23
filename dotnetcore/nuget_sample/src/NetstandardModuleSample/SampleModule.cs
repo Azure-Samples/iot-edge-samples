@@ -15,7 +15,7 @@ namespace NetstandardModuleSample
     }
 
     public void Destroy()
-    { 
+    {
     }
 
     public void Receive(Message received_message)

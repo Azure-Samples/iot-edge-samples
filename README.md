@@ -36,7 +36,7 @@ If you encounter an issue related to these samples please [submit a new issue](h
 2. Install `Visual Studio 2015` with Update 3.
 ### Quick Start
 1. `git clone https://github.com/Azure-Samples/iot-edge-samples.git`
-2. `cd iot-edge-samples\dotnet\visualstudio\2015\dotnet\DotnetModuleSample`
+2. `cd iot-edge-samples\dotnet\nuget_sample\src`
 3. Open the `DotnetModuleSample.sln` solution file.
 4. In the `Visual Studio 2015` IDE `Solution Explorer` right click the `DotnetModuleSample` and select `properties` from the context menu.
 5. Click `Debug` and update the `Executable` text box with the location and name of the executable to run by typing "**&lt;path to your output directory&gt;\gw.exe**" and update the `Application arguments:` to `module_dev_sample.json`.
@@ -50,7 +50,7 @@ If you encounter an issue related to these samples please [submit a new issue](h
 2. Install `Visual Studio 2017`.
 ### Quick Start
 1. `git clone https://github.com/Azure-Samples/iot-edge-samples.git`
-2. `cd iot-edge-samples\dotnet\visualstudio\2017\netstandard\NetstandardModuleSample`
+2. `cd iot-edge-samples\dotnetcore\nuget_sample\src`
 3. Open the `NetstandardModuleSample.sln` solution file.
 4. In the `Visual Studio 2017 IDE` Solution Explorer right click the `NetstandardModuleSample` and select `properties` from the context menu.
 5. Click `Debug` and update the `Executable` option to `$(OutDir)gw.exe` and the `Application arguments:` to `module_dev_sample.json`.

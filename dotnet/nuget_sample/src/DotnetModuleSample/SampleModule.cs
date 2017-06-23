@@ -4,7 +4,7 @@ using Microsoft.Azure.IoT.Gateway;
 
 namespace DotnetModuleSample
 {
-    public class SampleModule : IGatewayModule
+  public class SampleModule : IGatewayModule
   {
     private string configuration;
     public void Create(Broker broker, byte[] configuration)
