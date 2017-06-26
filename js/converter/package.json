@@ -1,0 +1,20 @@
+{
+  "name": "converter",
+  "version": "1.0.0",
+  "description": "BLE data converter sample for Azure IoT Edge.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Azure-Samples/iot-edge-samples"
+  },
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Microsoft Corporation",
+  "license": "MIT",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "azure-iot-gateway": "~1.1.3"
+  }
+}

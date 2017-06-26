@@ -11,7 +11,7 @@ If you encounter an issue related to these samples please [submit a new issue](h
 2. Install latest [Node LTS](https://nodejs.org).
 ### Quick Start
 1. `git clone https://github.com/Azure-Samples/iot-edge-samples.git`
-2. `cd iot-edge-samples/js`
+2. `cd iot-edge-samples/js/simple`
 3. `npm install` to install pre-built core runtime of IoT Edge.
 4. `npm run local` to start the IoT Edge with pre-defined modules (sensor and printer).
 
