@@ -16,6 +16,6 @@
   "dependencies": {
   },
   "devDependencies": {
-    "azure-iot-gateway": "~1.1.3"
+    "azure-iot-gateway": "~1.1.4"
   }
 }

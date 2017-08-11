@@ -5,7 +5,7 @@ If you encounter an issue related to these samples please [submit a new issue](h
 
 <br>
 
-## How to run the JavaScript module sample (Windows 10/Ubuntu 14+)
+## How to run the JavaScript module sample (Windows 10/Ubuntu 14+/Debian/Raspbian)
 ### Prerequisites
 1. Install latest [Git Client](https://git-scm.com/downloads).
 2. Install latest [Node LTS](https://nodejs.org).
