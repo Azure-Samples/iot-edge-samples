@@ -1,7 +1,6 @@
 'use strict';
 
-let Protocol = require('azure-iot-device-amqp').Amqp;
-let Client = require('azure-iot-device').Client;
+let clientFromConnectionString = require('azure-iot-device-mqtt').clientFromConnectionString;
 let Message = require('azure-iot-device').Message;
 
 class IotHubWriterModule {
@@ -35,7 +34,7 @@ class IotHubWriterModule {
 
     if (this.configuration && this.configuration.connection_string) {
       // open a connection to the IoT Hub
-      this.iothub_client = Client.fromConnectionString(this.configuration.connection_string, Protocol);
+      this.iothub_client = clientFromConnectionString(this.configuration.connection_string);
       this.iothub_client.open(this.on_connect.bind(this));
 
       return true;
@@ -46,21 +45,23 @@ class IotHubWriterModule {
   }
 
   receive(message) {
-    let data = Buffer.from(message.content).toString('utf8');
-
-    if (this.connected) {
-      var m = new Message(data);
-      if (message.properties) {
-        for (var prop in message.properties) {
-          m.properties.add(prop, message.properties[prop]);
+    if(message.content){
+      let data = Buffer.from(message.content).toString('utf8');
+      if (this.connected) {
+        var m = new Message(data);
+        if (message.properties) {
+          for (var prop in message.properties) {
+            m.properties.add(prop, message.properties[prop]);
+          }
         }
-      }
-
-      this.iothub_client.sendEvent(m, err => {
-        if (err) {
-          console.error(`An error occurred when sending message to Azure IoT Hub: ${err.toString()}`);
-        }
-      });
+        this.iothub_client.sendEvent(m, err => {
+          if (err) {
+            console.error(`An error occurred when sending message to Azure IoT Hub: ${err.toString()}`);
+          }
+        });
+      } 
+    } else {
+      console.log('writer.receive - Empty Message.content.');
     }
   }
 
