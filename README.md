@@ -8,7 +8,7 @@ If you encounter an issue related to these samples please [submit a new issue](h
 ## How to run the JavaScript module sample (Windows 10/Ubuntu 14+/Debian/Raspbian)
 ### Prerequisites
 1. Install latest [Git Client](https://git-scm.com/downloads).
-2. Install latest [Node Current](https://nodejs.org) (v8.4.0).
+2. Install latest [Node LTS](https://nodejs.org) (v6.11.2).
 
 ### Raspbian:
 1. Install [Raspbian-jessie](http://downloads.raspberrypi.org/raspbian/images/raspbian-2017-07-05/). 
