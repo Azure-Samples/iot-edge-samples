@@ -1,6 +1,7 @@
 'use strict';
 
-let clientFromConnectionString = require('azure-iot-device-mqtt').clientFromConnectionString;
+let Protocol = require('azure-iot-device-amqp').Amqp;
+let Client = require('azure-iot-device').Client;
 let Message = require('azure-iot-device').Message;
 
 class IotHubWriterModule {
@@ -34,7 +35,7 @@ class IotHubWriterModule {
 
     if (this.configuration && this.configuration.connection_string) {
       // open a connection to the IoT Hub
-      this.iothub_client = clientFromConnectionString(this.configuration.connection_string);
+      this.iothub_client = Client.fromConnectionString(this.configuration.connection_string, Protocol);
       this.iothub_client.open(this.on_connect.bind(this));
 
       return true;
